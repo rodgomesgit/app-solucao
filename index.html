@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feliz Aniversário!</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ============================================================
+     HERO
+     TROQUE AQUI: nome do aniversariante e a idade.
+     Procure por "Aniversariante" e "XX anos" nesta seção.
+     ============================================================ -->
+<header class="hero" id="hero">
+  <div class="hero-content">
+    <p class="hero-kicker">Hoje é dia de festa</p>
+    <h1 class="hero-name">Aniversariante</h1>
+    <p class="hero-age">XX anos</p>
+    <p class="hero-message">
+      Uma pequena trilha de carinho e desafios foi preparada especialmente para você.
+      Complete cada etapa para desbloquear mensagens, surpresas e uma grande revelação no final.
+    </p>
+    <a class="hero-cta" href="#dizeres">Começar &darr;</a>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============================================================
+       DIZERES
+       TROQUE AQUI: as 5 mensagens abaixo (classe "dizer-texto").
+       ============================================================ -->
+  <section class="secao dizeres" id="dizeres">
+    <h2 class="secao-titulo">Palavras para você</h2>
+    <div class="dizeres-grid">
+      <article class="dizer-card">
+        <span class="dizer-icone">💛</span>
+        <p class="dizer-texto">[Escreva aqui uma mensagem carinhosa sobre o quanto essa pessoa é especial.]</p>
+      </article>
+      <article class="dizer-card">
+        <span class="dizer-icone">✨</span>
+        <p class="dizer-texto">[Escreva aqui uma lembrança marcante ou um momento bonito que vocês compartilharam.]</p>
+      </article>
+      <article class="dizer-card">
+        <span class="dizer-icone">🌟</span>
+        <p class="dizer-texto">[Escreva aqui um desejo sincero para o novo ano de vida da pessoa.]</p>
+      </article>
+      <article class="dizer-card">
+        <span class="dizer-icone">🥂</span>
+        <p class="dizer-texto">[Escreva aqui algo divertido, uma piada interna ou característica marcante da pessoa.]</p>
+      </article>
+      <article class="dizer-card">
+        <span class="dizer-icone">💫</span>
+        <p class="dizer-texto">[Escreva aqui uma mensagem de agradecimento por tudo que essa pessoa representa.]</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- PROGRESSO -->
+  <section class="secao progresso" id="progresso">
+    <h2 class="secao-titulo">Sua trilha de desafios</h2>
+    <div class="progresso-barra-wrap">
+      <div class="progresso-barra">
+        <div class="progresso-fill" id="progressoFill"></div>
+      </div>
+      <p class="progresso-texto" id="progressoTexto">0 de 3 desafios completos</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       DESAFIO 1 — JOGO DA MEMÓRIA
+       ============================================================ -->
+  <section class="secao desafio" id="desafio1">
+    <h2 class="secao-titulo">Desafio 1 · Jogo da Memória</h2>
+    <p class="desafio-instrucao">Encontre todos os pares de cartas viradas para desbloquear a primeira recompensa.</p>
+    <div class="memoria-status" id="memoriaStatus">Pares encontrados: 0 de 6</div>
+    <div class="memoria-grid" id="memoriaGrid"></div>
+
+    <!-- RECOMPENSA 1 — TROQUE AQUI a mensagem/carta especial -->
+    <div class="recompensa" id="recompensa1" hidden>
+      <h3 class="recompensa-titulo">🎁 Recompensa desbloqueada</h3>
+      <div class="carta-especial">
+        <p>[Escreva aqui a carta ou mensagem especial que será revelada quando o Desafio 1 for concluído. Pode ser uma lembrança, uma declaração de carinho ou um convite para continuar a trilha.]</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       DESAFIO 2 — CAÇA-PALAVRAS (bloqueado até vencer o Desafio 1)
+       ============================================================ -->
+  <div class="locked-wrapper" id="wrapperDesafio2">
+    <div class="lock-overlay">
+      <span class="lock-icone">🔒</span>
+      <span class="lock-texto">Complete o Desafio 1 para desbloquear</span>
+    </div>
+    <section class="secao desafio" id="desafio2">
+      <h2 class="secao-titulo">Desafio 2 · Caça-Palavras</h2>
+      <p class="desafio-instrucao">Encontre as 5 palavras escondidas na grade. Clique e arraste da primeira até a última letra.</p>
+      <div class="cacapalavras-wrap">
+        <div class="cacapalavras-grid" id="cacapalavrasGrid"></div>
+        <ul class="cacapalavras-lista" id="cacapalavrasLista"></ul>
+      </div>
+
+      <!-- RECOMPENSA 2 — TROQUE AQUI a foto especial -->
+      <div class="recompensa" id="recompensa2" hidden>
+        <h3 class="recompensa-titulo">📷 Recompensa desbloqueada</h3>
+        <figure class="foto-especial">
+          <img src="assets/foto-especial.jpg" alt="Foto especial"
+               onerror="this.onerror=null;this.src='assets/placeholder.svg';">
+          <figcaption>[Troque a imagem em assets/foto-especial.jpg por uma foto real]</figcaption>
+        </figure>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============================================================
+       DESAFIO 3 — QUEBRA-CABEÇA DESLIZANTE (bloqueado até vencer o Desafio 2)
+       ============================================================ -->
+  <div class="locked-wrapper" id="wrapperDesafio3">
+    <div class="lock-overlay">
+      <span class="lock-icone">🔒</span>
+      <span class="lock-texto">Complete o Desafio 2 para desbloquear</span>
+    </div>
+    <section class="secao desafio" id="desafio3">
+      <h2 class="secao-titulo">Desafio 3 · Quebra-Cabeça</h2>
+      <p class="desafio-instrucao">Clique nas peças adjacentes ao espaço vazio para reorganizar os números de 1 a 8.</p>
+      <div class="puzzle-grid" id="puzzleGrid"></div>
+      <button class="btn-secundario" id="puzzleReiniciar" type="button">Embaralhar novamente</button>
+    </section>
+  </div>
+
+  <!-- ============================================================
+       RECOMPENSA FINAL — GRANDE REVELAÇÃO (bloqueada até vencer o Desafio 3)
+       ============================================================ -->
+  <div class="locked-wrapper" id="wrapperFinal">
+    <div class="lock-overlay">
+      <span class="lock-icone">🔒</span>
+      <span class="lock-texto">Complete o Desafio 3 para desbloquear</span>
+    </div>
+    <section class="secao final-reveal" id="finalReveal">
+      <canvas class="confete-canvas" id="confeteCanvas"></canvas>
+      <div class="final-conteudo">
+        <span class="final-icone">🎉</span>
+        <h2 class="secao-titulo">Parabéns, você completou a trilha!</h2>
+
+        <!-- TROQUE AQUI: a mensagem de encerramento -->
+        <p class="final-mensagem">
+          [Escreva aqui a mensagem de encerramento: o grande recado final para o aniversariante, reunindo tudo o que essa pessoa significa.]
+        </p>
+
+        <!-- TROQUE AQUI: foto ou vídeo de destaque -->
+        <figure class="foto-final">
+          <img src="assets/foto-final.jpg" alt="Foto de destaque"
+               onerror="this.onerror=null;this.src='assets/placeholder.svg';">
+          <figcaption>[Troque a imagem em assets/foto-final.jpg, ou substitua a tag &lt;img&gt; por um &lt;video controls&gt; com o vídeo de destaque]</figcaption>
+        </figure>
+      </div>
+    </section>
+  </div>
+
+  <!-- SEÇÃO FINAL — RESUMO -->
+  <footer class="rodape">
+    <p>Feito com carinho para celebrar você. 💛</p>
+  </footer>
+
+</main>
+
+<script src="js/script.js"></script>
+</body>
+</html>
