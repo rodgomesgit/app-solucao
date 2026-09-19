@@ -437,6 +437,89 @@ img { max-width: 100%; display: block; }
 }
 
 /* =========================================================
+   BOT FLUTUANTE (mascote animado)
+   ========================================================= */
+.bot-flutuante {
+  position: fixed;
+  right: 14px;
+  bottom: 14px;
+  z-index: 60;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.6rem;
+}
+
+.bot-avatar {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--card);
+  border: 2px solid var(--accent);
+  padding: 8px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px var(--shadow);
+  animation: botFlutuar 3.2s ease-in-out infinite;
+}
+
+.bot-avatar img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.bot-brilho {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--accent-soft) 0%, rgba(212, 175, 106, 0) 70%);
+  animation: botBrilhar 3.2s ease-in-out infinite;
+}
+
+@keyframes botFlutuar {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes botBrilhar {
+  0%, 100% { opacity: 0.5; transform: scale(0.9); }
+  50% { opacity: 1; transform: scale(1.15); }
+}
+
+.bot-balao {
+  max-width: 210px;
+  background: var(--card);
+  border: 1px solid var(--accent);
+  border-radius: 14px;
+  padding: 0.65rem 0.95rem;
+  box-shadow: 0 8px 20px var(--shadow);
+  opacity: 0;
+  transform: translateY(8px) scale(0.95);
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.bot-balao.visivel {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.bot-balao p {
+  margin: 0;
+  color: var(--text);
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+@media (min-width: 640px) {
+  .bot-avatar { width: 72px; height: 72px; }
+}
+
+/* =========================================================
    RESPONSIVO — telas maiores
    ========================================================= */
 @media (min-width: 640px) {

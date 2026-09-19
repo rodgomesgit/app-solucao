@@ -26,8 +26,19 @@ Todo o texto está marcado com comentários `<!-- TROQUE AQUI -->` no `index.htm
 | Foto especial (Recompensa 2) | `assets/foto-especial.jpg` | substitua o arquivo de imagem |
 | Foto/vídeo de destaque final | `assets/foto-final.jpg` | substitua o arquivo, ou troque a tag `<img>` por `<video controls>` dentro de `#finalReveal` |
 | Mensagem de encerramento | `<p class="final-mensagem">` | `index.html` (seção `#finalReveal`) |
+| Mascote/bot animado | `assets/bot.svg` | adicione seu próprio arquivo (veja seção "Mascote flutuante") |
 
 Se as imagens `assets/foto-especial.jpg` e `assets/foto-final.jpg` não existirem (ou falharem ao carregar), o site cai automaticamente em um placeholder ilustrado (`assets/placeholder.svg`) e o layout não quebra.
+
+## Mascote flutuante (bot animado)
+
+Há um pequeno avatar animado fixo no canto inferior direito da tela, com flutuação e brilho contínuos, e um balão de fala que reage ao progresso da trilha (mensagem de boas-vindas, elogio após cada desafio concluído e uma mensagem final).
+
+- **Para usar sua própria arte:** adicione um arquivo em `assets/bot.svg` (recomendado: SVG quadrado, ~200x200, fundo transparente). Se preferir PNG, troque o `src="assets/bot.svg"` por `src="assets/bot.png"` no bloco `<!-- BOT FLUTUANTE -->` do `index.html`.
+- Enquanto `assets/bot.svg` não existir, um mascote placeholder (`assets/bot-placeholder.svg`) é exibido automaticamente, sem quebrar o layout.
+- A animação (flutuar + brilhar) é feita em CSS no próprio contêiner do avatar, então funciona com qualquer imagem que você colocar — não é necessário animar o arquivo em si.
+- Para editar as mensagens do balão, procure o objeto `MENSAGENS_BOT` no topo da seção "BOT FLUTUANTE" em `js/script.js`.
+- Clicar no avatar a qualquer momento reabre o balão com a mensagem atual.
 
 ## A trilha de desafios
 
@@ -48,6 +59,8 @@ js/script.js         lógica dos jogos, bloqueio/desbloqueio e progresso
 assets/placeholder.svg   placeholder ilustrado usado quando uma foto real não existe
 assets/foto-especial.jpg (adicionar)  foto da Recompensa 2
 assets/foto-final.jpg    (adicionar)  foto/vídeo de destaque da revelação final
+assets/bot-placeholder.svg  mascote padrão exibido enquanto assets/bot.svg não existir
+assets/bot.svg           (adicionar)  sua própria arte para o mascote flutuante
 ```
 
 ## Resetar o progresso durante testes

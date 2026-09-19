@@ -64,6 +64,7 @@
       document.getElementById('recompensa1').hidden = false;
       desbloquear('wrapperDesafio2');
       atualizarBarraProgresso();
+      mostrarMensagemBot(MENSAGENS_BOT.c1);
     }
     if (numero === 2 && !progresso.c2) {
       progresso.c2 = true;
@@ -71,6 +72,7 @@
       document.getElementById('recompensa2').hidden = false;
       desbloquear('wrapperDesafio3');
       atualizarBarraProgresso();
+      mostrarMensagemBot(MENSAGENS_BOT.c2);
     }
     if (numero === 3 && !progresso.c3) {
       progresso.c3 = true;
@@ -78,7 +80,50 @@
       desbloquear('wrapperFinal');
       atualizarBarraProgresso();
       dispararConfete();
+      mostrarMensagemBot(MENSAGENS_BOT.final);
     }
+  }
+
+  /* =========================================================
+     BOT FLUTUANTE (mascote animado)
+     ========================================================= */
+  var MENSAGENS_BOT = {
+    inicio: 'Oi! Vamos começar sua trilha de aniversário? 🎉',
+    c1: 'Mandou bem no jogo da memória! 💛 Bora pro próximo?',
+    c2: 'Uau, encontrou todas as palavras! ✨',
+    final: 'Você completou a trilha inteira! Parabéns! 🥳'
+  };
+
+  var botTimeoutId = null;
+
+  function mensagemAtualDoBot() {
+    if (!progresso.c1) return MENSAGENS_BOT.inicio;
+    if (!progresso.c2) return MENSAGENS_BOT.c1;
+    if (!progresso.c3) return MENSAGENS_BOT.c2;
+    return MENSAGENS_BOT.final;
+  }
+
+  function mostrarMensagemBot(texto) {
+    var balao = document.getElementById('botBalao');
+    var msgEl = document.getElementById('botMensagem');
+    if (!balao || !msgEl) return;
+    msgEl.textContent = texto;
+    balao.classList.add('visivel');
+    clearTimeout(botTimeoutId);
+    botTimeoutId = setTimeout(function () {
+      balao.classList.remove('visivel');
+    }, 5000);
+  }
+
+  function inicializarBot() {
+    var botao = document.getElementById('botAvatarBtn');
+    if (!botao) return;
+    botao.addEventListener('click', function () {
+      mostrarMensagemBot(mensagemAtualDoBot());
+    });
+    setTimeout(function () {
+      mostrarMensagemBot(mensagemAtualDoBot());
+    }, 1200);
   }
 
   /* =========================================================
@@ -527,6 +572,7 @@
     iniciarJogoMemoria();
     iniciarCacaPalavras();
     iniciarQuebraCabeca();
+    inicializarBot();
     if (progresso.c3) dispararConfete();
   });
 })();
