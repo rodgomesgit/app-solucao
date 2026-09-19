@@ -46,7 +46,8 @@ Há um pequeno avatar animado fixo no canto inferior direito da tela, com flutua
 ## A trilha de desafios
 
 1. **Jogo da memória** — 6 pares de cartas com emojis. Ao encontrar todos os pares, libera a "carta especial" (Recompensa 1) e desbloqueia o Desafio 2.
-2. **Caça-palavras** — grade 10x10 com as palavras `AMOR`, `FAMÍLIA`, `FELICIDADE`, `SORRISO` e `PRESENTE` escondidas na horizontal, vertical e diagonal. Ao encontrar todas, libera a foto especial (Recompensa 2) e desbloqueia o Desafio 3.
+2. **Caça-palavras** — grade 10x10 com as palavras `CARNEIRO JR.`, `BATATINHA`, `CILÊNCIO`, `CONDE` e `XUXOVO` escondidas na horizontal, vertical e diagonal. Ao encontrar todas, libera a foto especial (Recompensa 2) e desbloqueia o Desafio 3.
+   - Tem também um easter egg: a frase "EU TE AMO" está escondida na diagonal da grade (não aparece na lista e não conta para concluir o desafio — é só para quem prestar atenção).
 3. **Quebra-cabeça deslizante 3x3** — clique numa peça adjacente ao espaço vazio para movê-la. O embaralhamento inicial é sempre solucionável. Ao resolver (números de 1 a 8 em ordem), libera a seção de revelação final com efeito de confete.
 
 Cada seção bloqueada aparece com um efeito de blur/opacidade e um cadeado até ser desbloqueada. O progresso ("X de 3 desafios completos") e o estado de cada desafio ficam salvos no `localStorage` do navegador, então recarregar a página não reseta o que já foi concluído.

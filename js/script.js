@@ -221,12 +221,16 @@
      ========================================================= */
   var TAMANHO_GRADE = 10;
   var PALAVRAS = [
-    { texto: 'FELICIDADE', celulas: gerarCelulas(0, 0, 0, 1) },
-    { texto: 'PRESENTE', celulas: gerarCelulas(1, 9, 1, 0) },
-    { texto: 'FAMILIA', celulas: gerarCelulas(2, 0, 1, 1) },
-    { texto: 'AMOR', celulas: gerarCelulas(2, 6, 1, 0) },
-    { texto: 'SORRISO', celulas: gerarCelulas(9, 0, 0, 1) }
+    { texto: 'CARNEIROJR', label: 'CARNEIRO JR.', celulas: gerarCelulas(0, 0, 0, 1) },
+    { texto: 'BATATINHA', label: 'BATATINHA', celulas: gerarCelulas(1, 0, 1, 0) },
+    { texto: 'CILENCIO', label: 'CILÊNCIO', celulas: gerarCelulas(9, 2, 0, 1) },
+    { texto: 'CONDE', label: 'CONDE', celulas: gerarCelulas(1, 9, 1, 0) },
+    { texto: 'XUXOVO', label: 'XUXOVO', celulas: gerarCelulas(1, 2, 1, 1) }
   ];
+
+  // Easter egg: fica escondida na diagonal da grade, não entra na lista
+  // de palavras a encontrar nem conta para concluir o desafio.
+  var SEGREDO_DIAGONAL = { texto: 'EUTEAMO', celulas: gerarCelulas(1, 7, 1, -1) };
 
   function gerarCelulas(linhaInicial, colInicial, passoLinha, passoCol) {
     // gerado dinamicamente por palavra na hora da criação da grade (ver montarGradeCacaPalavras)
@@ -239,19 +243,25 @@
       grade.push(new Array(TAMANHO_GRADE).fill(null));
     }
 
-    var listaPalavras = [];
-    PALAVRAS.forEach(function (p) {
-      var letras = p.texto.split('');
+    function escreverNaGrade(texto, celulas) {
       var coords = [];
-      var linha = p.celulas.linha, coluna = p.celulas.coluna;
-      letras.forEach(function (letra) {
+      var linha = celulas.linha, coluna = celulas.coluna;
+      texto.split('').forEach(function (letra) {
         grade[linha][coluna] = letra;
         coords.push(linha + ',' + coluna);
-        linha += p.celulas.passoLinha;
-        coluna += p.celulas.passoCol;
+        linha += celulas.passoLinha;
+        coluna += celulas.passoCol;
       });
-      listaPalavras.push({ texto: p.texto, coords: coords, encontrada: false });
+      return coords;
+    }
+
+    var listaPalavras = [];
+    PALAVRAS.forEach(function (p) {
+      var coords = escreverNaGrade(p.texto, p.celulas);
+      listaPalavras.push({ texto: p.texto, label: p.label || p.texto, coords: coords, encontrada: false });
     });
+
+    escreverNaGrade(SEGREDO_DIAGONAL.texto, SEGREDO_DIAGONAL.celulas);
 
     var alfabeto = 'AEIOSRTNMDCL';
     for (var l = 0; l < TAMANHO_GRADE; l++) {
@@ -288,7 +298,7 @@
 
     palavras.forEach(function (p) {
       var li = document.createElement('li');
-      li.textContent = p.texto;
+      li.textContent = p.label;
       li.setAttribute('data-palavra', p.texto);
       listaEl.appendChild(li);
     });
