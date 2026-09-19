@@ -177,7 +177,7 @@
       carta.setAttribute('data-emoji', emoji);
       carta.setAttribute('data-indice', indice);
       carta.setAttribute('aria-label', 'Carta');
-      carta.innerHTML = '<span class="verso">?</span><span class="face">' + emoji + '</span>';
+      carta.innerHTML = '<span class="verso">♛</span><span class="face">' + emoji + '</span>';
       carta.addEventListener('click', onClicarCarta);
       grid.appendChild(carta);
     });

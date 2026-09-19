@@ -2,9 +2,11 @@
 
 Site single-page (HTML/CSS/JS puro, sem backend, mobile-first) com uma trilha de 3 desafios sequenciais que desbloqueiam mensagens, uma foto especial e uma grande revelação final com confete.
 
+**Tema visual:** estilo "realeza" — cinza chumbo de fundo, acento dourado/champagne e um toque de borgonha real, tipografia serifada (Cinzel nos títulos, Cormorant Garamond no corpo do texto, carregadas via Google Fonts com fallback para serifadas do sistema caso fique offline), cartões com moldura dupla, e os bloqueios estilizados como selo de lacre.
+
 ## Como usar
 
-Não há build nem dependências. Basta abrir `index.html` no navegador, ou servir a pasta com qualquer servidor estático:
+Não há build nem dependências além das fontes do Google Fonts (carregadas via `<link>` no `<head>` — se o navegador estiver offline, o site cai automaticamente para fontes serifadas do sistema, sem quebrar o layout). Basta abrir `index.html` no navegador, ou servir a pasta com qualquer servidor estático:
 
 ```bash
 python3 -m http.server 8000
