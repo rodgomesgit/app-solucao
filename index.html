@@ -169,9 +169,12 @@
 
 <!-- ============================================================
      BOT FLUTUANTE (mascote animado)
-     TROQUE AQUI: coloque sua própria arte em assets/bot.svg (ou troque
-     o caminho abaixo para assets/bot.png). Enquanto o arquivo não
-     existir, um mascote placeholder ilustrado é usado automaticamente.
+     TROQUE AQUI:
+     - Imagem: coloque sua arte em assets/bot.svg (ou assets/bot.png,
+       trocando o src abaixo).
+     - Vídeo: coloque um vídeo curto em loop em assets/bot.mp4. Se ele
+       existir e carregar, substitui a imagem automaticamente. Se não
+       existir, a imagem (ou o placeholder) continua sendo usada.
      ============================================================ -->
 <div class="bot-flutuante" id="botFlutuante">
   <div class="bot-balao" id="botBalao">
@@ -179,8 +182,13 @@
   </div>
   <button class="bot-avatar" id="botAvatarBtn" type="button" aria-label="Falar com o mascote">
     <span class="bot-brilho" aria-hidden="true"></span>
-    <img src="assets/bot.svg" alt="Mascote animado"
-         onerror="this.onerror=null;this.src='assets/bot-placeholder.svg';">
+    <span class="bot-avatar-media">
+      <video id="botVideo" class="bot-video" autoplay muted loop playsinline preload="auto" aria-hidden="true">
+        <source src="assets/bot.mp4" type="video/mp4">
+      </video>
+      <img id="botImg" src="assets/bot.svg" alt="Mascote animado"
+           onerror="this.onerror=null;this.src='assets/bot-placeholder.svg';">
+    </span>
   </button>
 </div>
 

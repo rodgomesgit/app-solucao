@@ -463,12 +463,37 @@ img { max-width: 100%; display: block; }
   animation: botFlutuar 3.2s ease-in-out infinite;
 }
 
-.bot-avatar img {
+.bot-avatar-media {
   position: relative;
   z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.bot-avatar-media img {
   width: 100%;
   height: 100%;
   object-fit: contain;
+}
+
+.bot-avatar-media .bot-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+}
+
+.bot-avatar-media .bot-video.carregado {
+  display: block;
+}
+
+.bot-avatar-media .bot-video.carregado ~ img {
+  display: none;
 }
 
 .bot-brilho {

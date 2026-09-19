@@ -126,6 +126,18 @@
     }, 1200);
   }
 
+  function inicializarVideoBot() {
+    var video = document.getElementById('botVideo');
+    if (!video) return;
+    video.addEventListener('loadeddata', function () {
+      video.classList.add('carregado');
+      video.play().catch(function () { /* autoplay pode exigir interação em alguns navegadores */ });
+    });
+    video.addEventListener('error', function () {
+      video.classList.remove('carregado');
+    });
+  }
+
   /* =========================================================
      DESAFIO 1 — JOGO DA MEMÓRIA
      ========================================================= */
@@ -573,6 +585,7 @@
     iniciarCacaPalavras();
     iniciarQuebraCabeca();
     inicializarBot();
+    inicializarVideoBot();
     if (progresso.c3) dispararConfete();
   });
 })();

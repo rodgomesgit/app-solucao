@@ -34,9 +34,12 @@ Se as imagens `assets/foto-especial.jpg` e `assets/foto-final.jpg` não existire
 
 Há um pequeno avatar animado fixo no canto inferior direito da tela, com flutuação e brilho contínuos, e um balão de fala que reage ao progresso da trilha (mensagem de boas-vindas, elogio após cada desafio concluído e uma mensagem final).
 
-- **Para usar sua própria arte:** adicione um arquivo em `assets/bot.svg` (recomendado: SVG quadrado, ~200x200, fundo transparente). Se preferir PNG, troque o `src="assets/bot.svg"` por `src="assets/bot.png"` no bloco `<!-- BOT FLUTUANTE -->` do `index.html`.
-- Enquanto `assets/bot.svg` não existir, um mascote placeholder (`assets/bot-placeholder.svg`) é exibido automaticamente, sem quebrar o layout.
-- A animação (flutuar + brilhar) é feita em CSS no próprio contêiner do avatar, então funciona com qualquer imagem que você colocar — não é necessário animar o arquivo em si.
+- **Para usar sua própria arte (imagem):** adicione um arquivo em `assets/bot.svg` (recomendado: SVG quadrado, ~200x200, fundo transparente). Se preferir PNG, troque o `src="assets/bot.svg"` por `src="assets/bot.png"` no bloco `<!-- BOT FLUTUANTE -->` do `index.html`.
+- **Para usar um vídeo em loop:** adicione o arquivo em `assets/bot.mp4`. Se ele existir e carregar com sucesso, o site troca a imagem pelo vídeo automaticamente (em loop, mudo, sem controles — como um GIF, só que mais leve). Se o arquivo não existir ou não carregar, a imagem (ou o placeholder) continua sendo exibida normalmente.
+  - Recomendado: vídeo curto (poucos segundos), quadrado ou próximo disso, formato `.mp4` (H.264), sem áudio necessário (o player já é mudo) e leve (algumas centenas de KB a no máximo alguns MB, para não pesar o carregamento da página).
+  - Não precisa editar nada além de colocar o arquivo em `assets/bot.mp4` — a troca é automática via JavaScript (função `inicializarVideoBot` em `js/script.js`).
+- Enquanto `assets/bot.svg`/`assets/bot.mp4` não existirem, um mascote placeholder ilustrado (`assets/bot-placeholder.svg`) é exibido automaticamente, sem quebrar o layout.
+- A animação de flutuar + brilhar (o movimento do avatar na tela) é feita em CSS no próprio contêiner, então funciona por cima de qualquer imagem ou vídeo que você colocar.
 - Para editar as mensagens do balão, procure o objeto `MENSAGENS_BOT` no topo da seção "BOT FLUTUANTE" em `js/script.js`.
 - Clicar no avatar a qualquer momento reabre o balão com a mensagem atual.
 
@@ -59,8 +62,9 @@ js/script.js         lógica dos jogos, bloqueio/desbloqueio e progresso
 assets/placeholder.svg   placeholder ilustrado usado quando uma foto real não existe
 assets/foto-especial.jpg (adicionar)  foto da Recompensa 2
 assets/foto-final.jpg    (adicionar)  foto/vídeo de destaque da revelação final
-assets/bot-placeholder.svg  mascote padrão exibido enquanto assets/bot.svg não existir
-assets/bot.svg           (adicionar)  sua própria arte para o mascote flutuante
+assets/bot-placeholder.svg  mascote padrão exibido enquanto assets/bot.svg e assets/bot.mp4 não existirem
+assets/bot.svg           (adicionar)  sua própria arte (imagem) para o mascote flutuante
+assets/bot.mp4           (adicionar, opcional)  vídeo em loop do mascote — se existir, substitui a imagem
 ```
 
 ## Resetar o progresso durante testes
